@@ -27,8 +27,7 @@ def classifyTriangle(a,b,c):
       BEWARE: there may be a bug or two in this code
     """
 
-    temp = [a,b,c]
-    temp.sort()
+    
 
     
 
@@ -49,13 +48,13 @@ def classifyTriangle(a,b,c):
     # is important for correctness
     # the sum of any two sides must be strictly less than the third side
     # of the specified shape is not a triangle
-    if (temp[0] + temp[1] <= temp[2]):
+    if (a <= (c - b)) or (b <= (a - c)) or (c <= (b - a)):
         return 'NotATriangle'
         
     # now we know that we have a valid triangle 
     if a == b and b == c:
         return 'Equilateral'
-    elif ((temp[0] ** 2) + (temp[1] ** 2)) == (temp[2] ** 2):
+    elif ((a**2 + b **2 == c**2) or (a**2 + c**2 == b**2) or (b**2 + c**2 == a **2) ):
         return 'Right'
     elif (a != b) and  (b != c) and (a != c):
         return 'Scalene'
